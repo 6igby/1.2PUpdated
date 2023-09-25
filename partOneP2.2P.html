@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Part 2: JavaScript</h1>
+
+    <h2>String Methods</h2>
+    <p>String Origin: <span id="original">Hello Deakin!</span></p>
+    <p>Uppercase String: <span id="upper"></span></p>
+    <p>Substring: <span id="substring"></span></p>
+    <p>Index of 'Deakin': <span id="index"></span></p>
+    <p>Reversed String: <span id="reversed"></span></p>
+
+    <h2>Number Methods</h2>
+    <p>Original Number: <span id="original">003.194</span></p>
+    <p>Number Rounded: <span id="rounded"></span></p>
+    <p>Exponential Notation: <span id="exponential"></span></p>
+    <p>Precision: <span id="precision"></span></p>
+    <p>Integer Part: <span id="integer"></span></p>
+
+    <h2>Array Methods</h2>
+    <p>Original Array: <span id="array">Nissan 350z, Supra MK4, Lancer Ralliart, Turbo'd EK1, Hellcat</span></p>
+    <p>Joined: <span id="arrayJoin"></span></p>
+    <p>Removed Last Item: <span id="arrayPop"></span></p>
+    <p>Added New Item: <span id="arrayPush"></span></p>
+    <p>Removed First Item: <span id="arrayShift"></span></p>
+    <p>Added Item to Beginning: <span id="arrayUnshift"></span></p>
+
+    <h2>Date Methods</h2>
+    <p>Current Date: <span id="currentDate"></span></p>
+    <p>Year: <span id="currentYear"></span></p>
+    <p>Month: <span id="currentMonth"></span></p>
+    <p>Day of Week: <span id="dayOfWeek"></span></p>
+    <p>Date: <span id="date"></span></p>
+
+    <h2>Functions</h2>
+    <p>Age Function: <span id="ageResult"></span></p>
+    <p>Addition Function: <span id="addition"></span></p>
+
+    <script>
+        //Original String
+        const originalStr = "Hello Deakin!";
+        //Uppercase String Method
+        const uppercaseStr = originalStr.toUpperCase();
+        document.getElementById("upper").innerHTML = uppercaseStr;
+        //Substring Method
+        const substringStr = originalStr.substring(0, 5);
+        document.getElementById("substring").innerHTML = substringStr;
+        //Index of 'Deakin' Method
+        const indexOfDeakin = originalStr.indexOf("Deakin");
+        document.getElementById("index").innerHTML = indexOfDeakin;
+        //Reversed String Method
+        const reversedStr = originalStr.split("").reverse().join("");
+        document.getElementById("reversed").innerHTML = reversedStr;
+
+        //Original Number
+        const originalNum = 42.567;
+        //Number Rounded Method
+        const roundedNum = Math.round(originalNum);
+        document.getElementById("rounded").innerHTML = roundedNum;
+        //Exponential Notation Method
+        const exponentialNum = originalNum.toExponential();
+        document.getElementById("exponential").innerHTML = exponentialNum;
+        //Precision Method
+        const precisionNum = originalNum.toFixed(2);
+        document.getElementById("precision").innerHTML = precisionNum;
+        //Integer Part Method
+        const integerNum = Math.floor(originalNum);
+        document.getElementById("integer").innerHTML = integerNum;
+
+        //Original Array
+        const originalArray = ["Nissan 350z", "Supra MK4", "Lancer Ralliart", "Turbo'd EK1", "Hellcat"];
+        //Joined Method
+        document.getElementById("arrayJoin").textContent = originalArray.join(", Car: ");
+        //Removed Last Item Method
+        const poppedItem = originalArray.pop();
+        document.getElementById("arrayPop").textContent = poppedItem;
+        //Add New Item Method
+        originalArray.push("Hellcat");
+        document.getElementById("arrayPush").textContent = "New length: " + originalArray.length;
+        //Remove First Item Method
+        const shiftedItem = originalArray.shift();
+        document.getElementById("arrayShift").textContent = shiftedItem;
+        //Add Item to Beginning Method 
+        originalArray.unshift("Nissan GTR");
+        document.getElementById("arrayUnshift").textContent = "New length: " + originalArray.length;
+
+        //Get the current date
+        const currentDate = new Date();
+        //Current Date Method
+        document.getElementById("currentDate").textContent = currentDate.toString();
+        //Year Method
+        const year = currentDate.getFullYear();
+        document.getElementById("currentYear").textContent = year;
+        //Month Method
+        const month = currentDate.toLocaleString('default', { month: 'long' });
+        document.getElementById("currentMonth").textContent = month;
+        //Day of Week Method
+        const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+        const dayOfWeek = daysOfWeek[currentDate.getDay()];
+        document.getElementById("dayOfWeek").textContent = dayOfWeek;
+        //Date Method
+        const date = currentDate.getDate();
+        document.getElementById("date").textContent = date;
+
+        //Input Function
+        function listAge(userAge) {
+            return "You are now " + userAge + " years old";
+        }
+        const ageResult = listAge("21");
+        document.getElementById("ageResult").textContent = ageResult;
+
+        //Calculater Function
+        function addition(x, y) {
+            return x + y;
+        }
+        const addResult = addition(901, 543);
+        document.getElementById("addition").textContent = "Result: " + addResult;
+    </script>
+</body>
+</html>
